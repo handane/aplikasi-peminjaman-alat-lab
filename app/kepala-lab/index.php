@@ -34,6 +34,7 @@ if (!isset($_SESSION['kepalalab'])) {
       * {
          font-family: 'Poppins', sans-serif;
       }
+
       @media only screen and (max-width: 600px) {
          .title {
             display: none;
@@ -46,14 +47,14 @@ if (!isset($_SESSION['kepalalab'])) {
    <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style="background-color: rgba(255,245,0,1); border-bottom: solid grey">
-            <h3 class="title" style="color:rgba(2,11,133,1);">Kepala Lab</h3>
+         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style="background-color: #fff; border-bottom: solid grey">
+            <h3 class="title" style="color:#000;">Kepala Lab</h3>
          </div>
-         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="background-color: rgba(2,11,133,1);">
+         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="background-color: rgba(42,184,73,1);">
 
             <ul class="navbar-nav navbar-nav-right">
                <li class="nav-item nav-profile" style="color: white;"><?php echo $_SESSION['kepalalab']['nama'] ?></li>
-               <li class="nav-item nav-profile"><a href="logout.php" style="color: rgba(241,255,25,1)">Logout</a></li>
+               <li class="nav-item nav-profile"><a href="logout.php" style="color: #fff">Logout</a></li>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas" id="sidebarToggle" href="#!">
                <span class="icon-menu"></span>
@@ -65,7 +66,7 @@ if (!isset($_SESSION['kepalalab'])) {
          <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
                <li class="nav-item">
-                  <a href="index.php" class="nav-link" style="color:yellow; background-color:#4B49AC;">Daftar Peminjaman</a>
+                  <a href="index.php" class="nav-link" style="color:#fff; background-color:rgba(42,184,73,1);">Daftar Peminjaman</a>
                </li>
                <li class="nav-item">
                   <a href="admin.php" class="nav-link">Data Admin</a>
@@ -120,12 +121,12 @@ if (!isset($_SESSION['kepalalab'])) {
                                                 <?php
                                                 if ($row['status'] == 'belum disetujui') {
                                                 ?> <div style="color: red;"><?php
-                                                                                 echo $row['status']; ?></div><?php
-                                                                              } else { ?>
+                                                                              echo $row['status']; ?></div><?php
+                                                                                                         } else { ?>
                                                    <div style="color: green;"><?php
-                                                                                 echo $row['status']; ?></div>
+                                                                                                            echo $row['status']; ?></div>
                                                 <?php
-                                                                              }
+                                                                                                         }
                                                 ?>
 
                                              </td>

@@ -290,11 +290,11 @@ strong {
 }
 
 .custom-link {
-	background-color: var(--primary-color);
+	background-color: grey;
 }
 
 .custom-link:hover {
-	background-color: var(--secondary-color);
+	background-color: rgba(149, 149, 149, 1);
 }
 
 

@@ -14,7 +14,7 @@ session_start();
 </head>
 
 <body>
-  <section class="vh-100" style="background-color: rgba(2,11,133,1);">
+  <section class="vh-100" style="background-color: rgba(30,125,52,1);">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <a href="index.html" style="color:white;">
@@ -85,7 +85,7 @@ session_start();
                           $user_baru = $_POST['user_baru'];
                           $pass_baru = $_POST['pass_baru'];
                           $cek_regist = mysqli_query($conn, "SELECT * FROM mahasiswa WHERE user_mahasiswa = '$user_baru'");
-                          if (mysqli_num_rows($cek_regist) == 0 ) {
+                          if (mysqli_num_rows($cek_regist) == 0) {
                             $get_regist = mysqli_query($conn, "INSERT INTO mahasiswa VALUE(
                                 null,
                                 '" . $nim_baru . "',

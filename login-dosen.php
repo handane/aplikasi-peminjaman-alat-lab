@@ -14,7 +14,7 @@ session_start();
 </head>
 
 <body>
-  <section class="vh-100" style="background-color: rgba(2,11,133,1);">
+  <section class="vh-100" style="background-color: rgba(30,125,52,1);">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <a href="index.html" style="color:white;">
@@ -38,7 +38,6 @@ session_start();
                     <div class="login">
                       <button class="btn btn-warning btn-lg btn-block" name="submit" type="submit">Masuk</button><br>
                     </div>
-                    <button type="button" style="background: none;border:none;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Daftar</button>
                   </form>
                   <?php
                   if (isset($_POST["submit"])) {
@@ -59,8 +58,7 @@ session_start();
                         $kepalalab = $ambil_kepalalab->fetch_assoc();
                         $_SESSION["kepalalab"] = $kepalalab;
                         echo "<script>location='app/kepala-lab/index.php';</script>";
-                      }
-                       else {
+                      } else {
                   ?>
 
                         <div class="alert alert-danger alert-dismissible alert-atas"><img src="icons/exclamation-circle-fill.svg" alt="" style="margin-bottom: 3px;"> tidak dapat login, username atau password salah
