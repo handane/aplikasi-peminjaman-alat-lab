@@ -28,13 +28,15 @@ if (!isset($_SESSION['mahasiswa'])) {
   <link rel="stylesheet" href="../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../images/favicon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-  <script src="../../datatables/datatable.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
     * {
       font-family: 'Poppins', sans-serif;
+    }
+
+    td{
+      padding: 0 5px 5px 5px;
     }
 
     @media only screen and (max-width: 600px) {
@@ -53,7 +55,7 @@ if (!isset($_SESSION['mahasiswa'])) {
 
         <h3 class="title" style="color:#000;">Mahasiswa</h3>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="background-color: rgba(42,184,73,1);;">
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="background-color: rgba(42,184,73,1);">
 
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile" style="color: white;"><?php echo $_SESSION['mahasiswa']['nama'] ?></li>
@@ -69,83 +71,62 @@ if (!isset($_SESSION['mahasiswa'])) {
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a href="index.php" class="nav-link">Alat Laboratorium</a>
+            <a href="index.php" class="nav-link" style="color:white; background-color:rgba(42,184,73,1);">Alat Laboratorium</a>
           </li>
           <li class="nav-item">
-            <a href="pengajuan-peminjaman.php" style="color:#fff; background-color:rgba(42,184,73,1);" class="nav-link">pengajuan Peminjaman</a>
+            <a href="pengajuan-peminjaman.php" class="nav-link">pengajuan Peminjaman</a>
           </li>
           <li class="nav-item">
-            <a href="profil.php" class="nav-link">My Profil</a>
+            <a href="Profil.php" class="nav-link">My Profil</a>
           </li>
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <a class="btn btn-sm btn-info mb-2" href="pinjam-alat.php">Ajukan Peminjaman</a>
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Pengajuan Peminjaman Alat Laboratorium</h4>
-                  <div class="table-responsive">
-                    <table id="datatablesSimple" class="table table-hover">
-                      <thead>
+                  <h4 class="card-title">Alat Laboratorium</h4>
+                  <?php
+                  $kode_alat = $_GET['kode_alat'];
+                  $alat = mysqli_query($conn, "SELECT * FROM alat WHERE kode_alat = '$kode_alat'");
+                  $row = mysqli_fetch_array($alat);
+                  ?>
+                  <div class="row">
+                    <img class="col-md-4" src="../admin/foto/<?php echo $row['foto_alat'] ?>" alt="gambar" width="200px">
+                    <div class="col-md-6">
+                      <table>
                         <tr>
-                          <th>No</th>
-                          <th>Status</th>
-                          <th>Nama Alat</th>
-                          <th>Jumlah</th>
-                          <th>Tgl Peminjaman</th>
-                          <th>Tgl Pengembalian</th>
-                          <th>No HP</th>
-                          <th></th>
+                          <td>Nama Alat</td>
+                          <td>:</td>
+                          <td><?php echo $row['nama_alat'] ?></td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-                        $no = 1;
-                        $id_mahasiswa = $_SESSION['mahasiswa']['id_mahasiswa'];
-                        $nama_mahasiswa = $_SESSION['mahasiswa']['nama'];
-                        $konselor = mysqli_query($conn, "SELECT * FROM pinjam WHERE nama_mahasiswa = '$nama_mahasiswa' ORDER BY id_pinjam DESC");
-                        if (mysqli_num_rows($konselor) > 0) {
-                          while ($row = mysqli_fetch_array($konselor)) {
-                        ?>
-                            <tr>
-                              <td><?php echo $no++; ?></td>
-                              <td>
-                                <?php
-                                if ($row['status'] == 'sudah disetujui') {
-                                ?>
-                                  <div style="color:green;"><?php echo $row['status']; ?></div>
-                                <?php } else if ($row['status'] == 'dikembalikan') {
-                                ?>
-                                  <div style="color:blue;">dikembalikan</div>
-                                <?php
-                                } else { ?>
-                                  <div style="color:red;">menunggu persetujuan</div>
-                                <?php } ?>
-                              </td>
-                              <td><?php echo $row['nama_alat']; ?></td>
-                              <td><?php echo $row['jumlah']; ?></td>
-                              <td><?php echo $row['tgl_peminjaman']; ?></td>
-                              <td><?php echo $row['tgl_pengembalian']; ?></td>
-                              <td><?php echo $row['no_telp']; ?></td>
-                              <td>
-                                <?php
-                                if ($row['status'] == 'belum disetujui') {
-                                ?>
-                                  <a href="batal-pinjam.php?id_pinjam=<?php echo $row['id_pinjam'] ?>&nama_alat=<?php echo $row['nama_alat'] ?>" class="btn btn-sm btn-danger">Batalkan</a>
-                                <?php } else { ?>
-
-                                <?php } ?>
-                              </td>
-                            </tr>
-                        <?php }
-                        } ?>
-                      </tbody>
-                    </table>
+                        <tr>
+                          <td>Tipe Alat</td>
+                          <td>:</td>
+                          <td><?php echo $row['tipe_alat'] ?></td>
+                        </tr>
+                        <tr>
+                          <td>Jumlah</td>
+                          <td>:</td>
+                          <td><?php echo $row['jumlah_alat'] ?></td>
+                        </tr>
+                        <tr>
+                          <td>Tahun Alat</td>
+                          <td>:</td>
+                          <td><?php echo $row['tahun_alat'] ?></td>
+                        </tr>
+                        <tr>
+                          <td>Keterangan</td>
+                          <td>:</td>
+                          <td><?php echo $row['keterangan_alat'] ?></td>
+                        </tr>
+                      </table>
+                    </div>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -187,7 +168,6 @@ if (!isset($_SESSION['mahasiswa'])) {
   <!-- Custom js for this page-->
   <script src="../js/dashboard.js"></script>
   <script src="../js/Chart.roundedBarCharts.js"></script>
-  <script src="../../js/datatables-simple-demo.js"></script>
   <!-- End custom js for this page-->
 </body>
 

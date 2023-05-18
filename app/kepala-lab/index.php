@@ -90,6 +90,7 @@ if (!isset($_SESSION['kepalalab'])) {
                                        <th>Nama Alat</th>
                                        <th>NIM</th>
                                        <th>Nama Mahasiswa</th>
+                                       <th>Jumlah</th>
                                        <th>tgl peminjaman</th>
                                        <th>tgl pengembalian</th>
                                        <th>No HP</th>
@@ -133,6 +134,7 @@ if (!isset($_SESSION['kepalalab'])) {
                                              <td><?php echo $row['nama_alat']; ?></td>
                                              <td><?php echo $row['nim']; ?></td>
                                              <td><?php echo $row['nama_mahasiswa']; ?></td>
+                                             <td><?php echo $row['jumlah']; ?></td>
                                              <td><?php echo $row['tgl_peminjaman']; ?></td>
                                              <td><?php echo $row['tgl_pengembalian']; ?></td>
                                              <td><?php echo $row['no_telp']; ?></td>

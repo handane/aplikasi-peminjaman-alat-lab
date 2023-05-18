@@ -7,9 +7,11 @@ if (!isset($_SESSION['admin'])) {
   $id_pinjam = $_GET['id_pinjam'];
   $nama_alat = $_GET['nama_alat'];
   $date = date('d-m-Y');
+  $select_pinjam = mysqli_query($conn, "SELECT * FROM pinjam WHERE id_pinjam = '$id_pinjam'");
+  $row_12 = mysqli_fetch_array($select_pinjam);
   $select_alat = mysqli_query($conn, "SELECT * FROM alat WHERE nama_alat = '$nama_alat'");
   $row_1 = mysqli_fetch_array($select_alat);
-  $jumlah = $row_1['jumlah_alat'] + 1;
+  $jumlah = $row_1['jumlah_alat'] + $row_12['jumlah'];
   $update = mysqli_query($conn, "UPDATE pinjam SET 
                     tgl_pengembalian = '$date',
                     status = 'dikembalikan'

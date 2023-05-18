@@ -92,10 +92,7 @@ if (!isset($_SESSION['mahasiswa'])) {
                                        <th>No</th>
                                        <th>Nama Alat</th>
                                        <th>Type</th>
-                                       <th>Tahun</th>
                                        <th>Jumlah</th>
-                                       <th>Gambar</th>
-                                       <th>Keterangan</th>
                                        <th></th>
                                     </tr>
                                  </thead>
@@ -111,11 +108,9 @@ if (!isset($_SESSION['mahasiswa'])) {
                                              <td><?php echo $no++; ?></td>
                                              <td><?php echo $row['nama_alat']; ?></td>
                                              <td><?php echo $row['tipe_alat']; ?></td>
-                                             <td><?php echo $row['tahun_alat']; ?></td>
                                              <td><?php echo $row['jumlah_alat']; ?></td>
-                                             <td style="padding:5px 0;"><img src="../admin/foto/<?php echo $row['foto_alat']; ?>" alt="" style="border-radius:0; height:80px; width:80px;"></td>
-                                             <td><?php echo $row['keterangan_alat']; ?></td>
-                                             <td><a href="pinjam.php?kode_alat=<?php echo $row['kode_alat'] ?>&id_mahasiswa=<?php echo $id_mahasiswa ?>" class="btn btn-sm btn-warning">Ajukan Peminjaman</a></td>
+                                             <td><a class="btn btn-sm btn-info" href="detail.php?kode_alat=<?php echo $row['kode_alat'] ?>">Detail</a></td>
+                                             <!-- <td><a href="pinjam.php?kode_alat=<?php echo $row['kode_alat'] ?>&id_mahasiswa=<?php echo $id_mahasiswa ?>" class="btn btn-sm btn-warning">Ajukan Peminjaman</a></td> -->
                                           </tr>
                                     <?php }
                                     } ?>

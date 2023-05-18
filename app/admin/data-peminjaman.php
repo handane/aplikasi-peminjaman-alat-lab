@@ -88,6 +88,7 @@ if (!isset($_SESSION['admin'])) {
                      <div class="card">
                         <div class="card-body">
                            <h4 class="card-title">Daftar Pengajuan Peminjaman Alat</h4>
+                           <a href="cetak.php" target="_blank" class="btn btn-sm btn-warning">Cetak</a>
                            <div class="table-responsive">
                               <table id="datatablesSimple" class="table table-hover">
                                  <thead class="text-center">
@@ -97,6 +98,7 @@ if (!isset($_SESSION['admin'])) {
                                        <th>Nama Alat</th>
                                        <th>NIM</th>
                                        <th>Nama Mahasiswa</th>
+                                       <th>Jumlah</th>
                                        <th>tgl peminjaman</th>
                                        <th>tgl pengembalian</th>
                                        <th>No HP</th>
@@ -129,6 +131,7 @@ if (!isset($_SESSION['admin'])) {
                                              <td><?php echo $row['nama_alat']; ?></td>
                                              <td><?php echo $row['nim']; ?></td>
                                              <td><?php echo $row['nama_mahasiswa']; ?></td>
+                                             <td><?php echo $row['jumlah']; ?></td>
                                              <td><?php echo $row['tgl_peminjaman']; ?></td>
                                              <td><?php echo $row['tgl_pengembalian']; ?></td>
                                              <td><?php echo $row['no_telp']; ?></td>
