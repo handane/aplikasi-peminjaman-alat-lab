@@ -27,7 +27,7 @@ if (!isset($_SESSION['kepalalab'])) {
    <!-- inject:css -->
    <link rel="stylesheet" href="../css/vertical-layout-light/style.css">
    <!-- endinject -->
-   <link rel="shortcut icon" href="../images/favicon.png" />
+   <link rel="shortcut icon" href="../../images/LOGO UNMUL.png" />
    <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 

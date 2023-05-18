@@ -28,7 +28,7 @@ if (!isset($_SESSION['admin'])) {
   <!-- inject:css -->
   <link rel="stylesheet" href="../css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../images/favicon.png" />
+  <link rel="shortcut icon" href="../../images/LOGO UNMUL.png" />
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <script src="../../datatables/datatable.js"></script>
   <style>

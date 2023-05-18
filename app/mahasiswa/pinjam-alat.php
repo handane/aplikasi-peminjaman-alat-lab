@@ -27,7 +27,7 @@ if (!isset($_SESSION['mahasiswa'])) {
   <!-- inject:css -->
   <link rel="stylesheet" href="../css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../images/favicon.png" />
+  <link rel="shortcut icon" href="../../images/LOGO UNMUL.png" />
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <script src="../../datatables/datatable.js"></script>
   <style>
@@ -93,7 +93,8 @@ if (!isset($_SESSION['mahasiswa'])) {
                         <div class="card">
                           <div class="card-body">
                             <?php
-                            $data_mahasiswa = mysqli_query($conn, "SELECT * FROM mahasiswa");
+                            $id_mahasiswa = $_SESSION['mahasiswa']['id_mahasiswa'];
+                            $data_mahasiswa = mysqli_query($conn, "SELECT * FROM mahasiswa WHERE id_mahasiswa = '$id_mahasiswa'");
                             $row1 = mysqli_fetch_array($data_mahasiswa);
                             ?>
                             <form action="" method="POST">
